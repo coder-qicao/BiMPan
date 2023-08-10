@@ -1,3 +1,41 @@
-Pansharpening is a challenging low-level vision task whose aim is to learn the complementary representation between spectral information and spatial detail. Despite the remarkable progress, existing deep neural network (DNN) based pansharpening algorithms are still confronted with common limitations. 1) These methods rarely consider the local specificity of different spectral bands; 2) They often extract the global detail in the spatial domain, which ignore the task-related degradation, e.g., the down-sampling process of MS image, and also suffer from limited receptive field. In this work, we propose a novel bidomain modeling paradigm for pansharpening problem (dubbed as BiMPan), which takes into both local spectral specificity and global spatial detail. More specifically, we first customize the specialized source-discriminative adaptive convolution (SDAConv) for every spectral band instead of sharing the identical kernels across all bands like prior works. Then, we devise a novel Fourier global modeling module (FGMM), which is capable of embracing  global information while benefiting the disentanglement of image degradation. By integrating the band-aware local feature and Fourier global detail from these two functional designs, we can fuse a texture-rich while visually pleasing high-resolution MS image. Extensive experiments demonstrate that the proposed framework achieves favorable performance against current state-of-the-art pansharpening methods.
+# Bidomain Modeling Paradigm for Pansharpening
+- Code for the paper: "Bidomain Modeling Paradigm for Pansharpening", ACM MM 2023.
+- State-of-the-art (SOTA) performance on the [PanCollection](https://github.com/liangjiandeng/PanCollection) of remote sensing pansharpening.
 
-The code will be available soon...
+## Method
+### pansharpening
+![pansharpening](images\head.pdf)
+Pansharpening is a challenging low-level vision task whose aim is to fuse LRMS (low-resolution multispectral image) and PAN (panchormatic image) to get HRMS (high-resolution multispectral image).
+### BiMPan
+#### Overall Structure
+![overall](images\overall.pdf)
+We empoly a bidomain paradigm for BiMPan, _i.e._, BLSM (Band-Aware Local Specificity Modeling) branch to extract local features and FGDR (Fourier Global Detail Reconstruction) branch to extract global features.
+#### BLSM
+![BLSM](images\ADK.pdf)
+BLSM branch applies adaptive convolution to explore the local uniqueness of each band.
+#### FGDR
+![FDGR](images\Fourier.pdf)
+FDGR branch applies convolution in Fourier domain to embracing global information while benefiting the disentanglement of image degradation.
+## Experiment results
+- Quantitative evalutaion results on WV3 datasets of PanCollection.
+![results](images\results.PNG)
+- Visual results on WV3 datasets of PanCollection.
+![RR](images\WV3_RR)
+![FR](images\WV3_FR)
+# Get Strarted
+## Dataset
+- Datasets for pansharpening: [PanCollection](https://github.com/liangjiandeng/PanCollection). The downloaded data can be placed everywhere because we do not use relative path. Besides, we recommend the h5py format, as if using the mat format, the data loading section needs to be rewritten.
+## Denpendcies
+- Python 3.10 (Recommend to use Anaconda)
+- Pytorch 2.0
+- NVIDIA GPU + CUDA
+- Python packages: pip install numpy scipy h5py torchsummary
+## Code
+Training and testing codes are in the current folder.
+- The code for training is in main.py, while the code for testing test.py.
+- For training, you need to set the file_path in the main function, adopt t your train set, validate set, and test set as well. Our code train the .h5 file, you may change it through changing the code in main function.
+- As for testing, you need to set the path in both main and test function to open and load the file.
+# Citation
+Coming soon.
+# Citation
+We are glad to hear from you. If you have any questions, please feel free to contact caolucas082@gmail.com.
