@@ -4,24 +4,24 @@
 
 ## Method
 ### pansharpening
-![pansharpening](images\head.pdf)
+![](.\images\head.pdf)
 Pansharpening is a challenging low-level vision task whose aim is to fuse LRMS (low-resolution multispectral image) and PAN (panchormatic image) to get HRMS (high-resolution multispectral image).
 ### BiMPan
 #### Overall Structure
-![overall](images\overall.pdf)
+![](.\images\overall.pdf)
 We empoly a bidomain paradigm for BiMPan, _i.e._, BLSM (Band-Aware Local Specificity Modeling) branch to extract local features and FGDR (Fourier Global Detail Reconstruction) branch to extract global features.
 #### BLSM
-![BLSM](images\ADK.pdf)
+![](.\images\ADK.pdf)
 BLSM branch applies adaptive convolution to explore the local uniqueness of each band.
 #### FGDR
-![FDGR](images\Fourier.pdf)
+![](.\images\Fourier.pdf)
 FDGR branch applies convolution in Fourier domain to embracing global information while benefiting the disentanglement of image degradation.
 ## Experiment results
 - Quantitative evalutaion results on WV3 datasets of PanCollection.
-![results](images\results.PNG)
+![](.\images\results.PNG)
 - Visual results on WV3 datasets of PanCollection.
-![RR](images\WV3_RR)
-![FR](images\WV3_FR)
+![](.\images\WV3_RR)
+![](.\images\WV3_FR)
 # Get Strarted
 ## Dataset
 - Datasets for pansharpening: [PanCollection](https://github.com/liangjiandeng/PanCollection). The downloaded data can be placed everywhere because we do not use relative path. Besides, we recommend the h5py format, as if using the mat format, the data loading section needs to be rewritten.
