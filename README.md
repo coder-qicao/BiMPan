@@ -3,7 +3,7 @@
 - State-of-the-art (SOTA) performance on the [PanCollection](https://github.com/liangjiandeng/PanCollection) of remote sensing pansharpening.
 
 ## Method
-### pansharpening
+### Pansharpening
 <div align=center><img width="500" src="images/head.PNG"/></div>
 
 Pansharpening is a challenging low-level vision task whose aim is to fuse LRMS (low-resolution multispectral image) and PAN (panchormatic image) to get HRMS (high-resolution multispectral image).
@@ -38,11 +38,13 @@ FDGR branch applies convolution in Fourier domain to embracing global informatio
 - NVIDIA GPU + CUDA
 - Python packages: pip install numpy scipy h5py torchsummary
 ## Code
-Training and testing codes are in the current folder.
+- The code is contributed by Junming Hou and Qi Cao.
+- The code is highly based on the repository of [LAGConv] (https://github.com/liangjiandeng/LAGConv) and [Fourmer] (https://github.com/manman1995)
+- Training and testing codes are in the current folder.
 - The code for training is in main.py, while the code for testing test.py.
 - For training, you need to set the file_path in the main function, adopt t your train set, validate set, and test set as well. Our code train the .h5 file, you may change it through changing the code in main function.
 - As for testing, you need to set the path in both main and test function to open and load the file.
 # Citation
 Coming soon.
 # Contact
-We are glad to hear from you. If you have any questions, please feel free to contact caolucas082@gmail.com.
+If you have any questions, please feel free to contact junming_hou@seu.edu.cn, caolucas082@gmail.com.
